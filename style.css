@@ -5,6 +5,7 @@
     margin:0 ;
     padding: 0;
     box-sizing: border-box;
+    
 }
 
 body {
@@ -16,10 +17,11 @@ body {
 
 
 .hero {
-    background: linear-gradient(90deg, #1e3c72, #2a5298);
+    background: linear-gradient(90deg, #153e8b, #2a5298);
     color: white;
     text-align: center;
-    padding: 70px 20px;
+    padding: 80px 20px;
+    width: 100%;
 }
 
 .hero h1 {
@@ -127,7 +129,7 @@ body {
 
 .profile-card img {
     width: 100%;
-    height: 260px;
+    height: 320px;
     object-fit: cover;
 }
 
@@ -162,27 +164,62 @@ footer {
 }
 
 @media (max-width: 768px) {
+    body {
+        overflow-x: hidden;
+    }
 
     .hero h1 {
         font-size: 1.8rem;
     }
 
-    .section-header h2 {
-        font-size: 1.5rem;
+    /* SERVICES SECTION FIX */
+    .services {
+        padding: 40px 10px; /* Reduce outer padding to give grid room */
+    }
+
+    .services-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); 
+        gap: 10px; /* Tighten gap */
+        justify-items: center; 
     }
 
     .card {
-        padding: 30px 20px;
+        padding: 15px 5px; /* Shrink internal padding */
+        width: 100%; /* Ensure cards fill their grid fraction */
+    }
+
+    .card h3 {
+        font-size: 0.85rem; /* Scale down text */
+    }
+
+    .service-icon {
+        font-size: 30px; /* Scale down icons */
+        margin-bottom: 10px;
+    }
+
+    /* TEAM SECTION FIX */
+    .team-container {
+        flex-wrap: nowrap;
+        gap: 10px;
+        padding: 0 5px;
     }
 
     .profile-card {
-        flex: 1 ;
-    width: 100%;
+        /* Use calc to account for gaps accurately */
+        flex: 0 0 calc(33.33% - 7px);
+        width: calc(33.33% - 7px);
     }
 
-     .team-container {
-        flex-direction: row;
-        align-items: center;
+    .profile-card img {
+        height: 120px; /* Shorter images for mobile ratio */
     }
 
+    .profile-info {
+        padding: 10px;
+    }
+
+    .profile-info h3 {
+        font-size: 0.8rem;
+    }
 }
